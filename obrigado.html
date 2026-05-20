@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado! Seus Materiais Estão Prontos | Skin Care Secrets</title>
+    <meta name="description" content="Sua jornada para uma pele perfeita começa aqui. Baixe seus guias exclusivos de skincare e autocuidado.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --primary: #FF8DA1;
+            --primary-light: #FFD1DC;
+            --bg-soft: #FFF0F5;
+            --white: #FFFFFF;
+            --text-dark: #4A4A4A;
+            --text-light: #7A7A7A;
+            --shadow: 0 10px 30px rgba(255, 141, 161, 0.15);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg-soft) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        header {
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Download Grid */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 141, 161, 0.25);
+            border-color: var(--primary-light);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: var(--bg-soft);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .card:hover .icon-wrapper {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        p.description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .btn-download {
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 100px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-download:hover {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-bottom: 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .download-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Floating Decoration */
+        .blob {
+            position: fixed;
+            z-index: -1;
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-light);
+            top: -100px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: #FFE4E1;
+            bottom: -50px;
+            left: -50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <header>
+            <h1>Obrigada por confiar em nós! ✨</h1>
+            <p class="subtitle">Sua jornada para uma pele radiante e um autocuidado renovado começa agora. Baixe seus materiais exclusivos abaixo.</p>
+        </header>
+
+        <main class="download-grid">
+            <!-- Card 1 -->
+            <div class="card" style="animation-delay: 0.1s;">
+                <div class="icon-wrapper">
+                    <i data-lucide="sparkles"></i>
+                </div>
+                <h3>Guia Skincare Iniciantes</h3>
+                <p class="description">O passo a passo fundamental para quem está começando a cuidar da pele hoje.</p>
+                <a href="Guia_Skincare_Iniciantes.pdf" download class="btn-download">
+                    <i data-lucide="download"></i> Baixar PDF
+                </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" style="animation-delay: 0.2s;">
+                <div class="icon-wrapper">
+                    <i data-lucide="scissors"></i>
+                </div>
+                <h3>Guia Cabelos & Cronograma</h3>
+                <p class="description">Recupere a saúde dos seus fios com um cronograma capilar personalizado.</p>
+                <a href="Guia_Cabelos_Hidratacao_Cronograma.pdf" download class="btn-download">
+                    <i data-lucide="download"></i> Baixar PDF
+                </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" style="animation-delay: 0.3s;">
+                <div class="icon-wrapper">
+                    <i data-lucide="palette"></i>
+                </div>
+                <h3>Guia Maquiagem Dia a Dia</h3>
+                <p class="description">Dicas práticas para uma maquiagem natural e elegante em poucos minutos.</p>
+                <a href="Guia_Maquiagem_Dia_a_Dia.pdf" download class="btn-download">
+                    <i data-lucide="download"></i> Baixar PDF
+                </a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card" style="animation-delay: 0.4s;">
+                <div class="icon-wrapper">
+                    <i data-lucide="calendar"></i>
+                </div>
+                <h3>Desafio Autocuidado 21 Dias</h3>
+                <p class="description">Um guia prático para transformar sua rotina e elevar sua autoestima em 3 semanas.</p>
+                <a href="Desafio_Autocuidado_21_Dias.pdf" download class="btn-download">
+                    <i data-lucide="download"></i> Baixar PDF
+                </a>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card" style="animation-delay: 0.5s;">
+                <div class="icon-wrapper">
+                    <i data-lucide="apple"></i>
+                </div>
+                <h3>Cardápio Semanal Saudável</h3>
+                <p class="description">Alimentação balanceada que reflete diretamente na saúde da sua pele.</p>
+                <a href="Cardapio_Semanal_Saudavel.pdf" download class="btn-download">
+                    <i data-lucide="download"></i> Baixar PDF
+                </a>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card" style="animation-delay: 0.6s;">
+                <div class="icon-wrapper">
+                    <i data-lucide="eye"></i>
+                </div>
+                <h3>Aprenda Design de Sobrancelhas</h3>
+                <p class="description">Domine as técnicas para um olhar marcante e sobrancelhas perfeitas.</p>
+                <a href="Guia_Design_Sobrancelhas_Completo.pdf" download class="btn-download">
+                    <i data-lucide="download"></i> Baixar PDF
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Skin Care Secrets. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Precisa de ajuda? Entre em contato conosco.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
